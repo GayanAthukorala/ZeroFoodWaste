@@ -1,38 +1,455 @@
-.App {
-  text-align: center;
+body {
+  padding: 0;
+  margin: 0;
+  background-color: antiquewhite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.planMealBackground {
+
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+ /* Home Page */
+.border{
+  border: solid;
+  border-width: 5px;
+  border-color: rgb(93, 73, 30);
+  height: 500px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(244, 224, 198);
+}
+
+.title{
+  font-size: 60px;
+  color: rgb(93, 73, 30);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.buttons{
+  display:flex;
+  flex-direction: row;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.button{
+  width: 200px;
+  height: 50px;
+  border: none;
+  background-color: rgba(128, 14, 14, 0.651);
+  border-radius: 20px;
+  font-weight: bold;
+  display:inline-block
+
+}
+
+.button:hover{
+  background-color: rgba(120, 7, 7, 0.918) ;
+  width: 210px;
+  height: 52.5px;
+  transition-timing-function: ease-in;
+  transition: 0.05s;
+  
+}
+
+.buttonWrapper{
+  padding-left: 30px;
+  padding-right: 30px;
+  /* padding-top: 50px; */
+  height: 80px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+}
+
+.buttonText{
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Breakfast Lunch and Dinner */
+
+.recipeBorder{
+  border: solid;
+  border-color:rgb(93, 73, 30);
+  border-width: 5px;
+  height: 450px;
+  width: 1000px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+    align-items: center;
+    /* justify-content: center; */
+  background-color: rgb(244, 224, 198);
+
+}
+
+
+::-webkit-scrollbar{
+  width:0 ;
+
+}
+
+
+::-webkit-scrollbar-track{
+  border-radius: 100vw;
+  /* border-width: 2px; */
+  /* border: 1px solid #000000; */
+  /* background-color: rgb(149, 118, 51); */
+  margin-block: 0.5em;
+  /* border: 0.25em solid antiquewhite; */
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius: 100vw;
+  background-color:rgba(128, 14, 14, 0.651);
+  border: 0.25em solid rgb(244, 224, 198);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(120, 7, 7, 0.918);
+}
+
+
+.plannedRecipeBorder{
+  border: solid;
+  border-color: rgb(57, 38, 0);
+  border-width: 5px;
+  border-radius: 10px;
+  height: 330px;
+  width: 300px;
+  max-height: 380px;
+  max-width: 300px;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  /* background-color: rgb(229, 211, 194); */
+  background-color: white;
+  
+
+}
+
+.plannedRecipeBorderGap{
+  padding-left: 12px;
+  padding-right: 12px;
+
+}
+
+.plannedRecipeTitle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plannedRecipeButtons{
+  display: flex;
+  flex-direction: row;
+}
+
+.plannedRecipeInfo{
+  width: 250px;
+  /* max-height: 380px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deleteButton{
+  width: 280px;
+  height: 20px;
+  border: none;
+  background-color: rgba(203, 0, 0, 0.651);
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
   }
+
+.deleteButton:hover{
+  background-color: rgb(182, 0, 0);
+  color: white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.deleteButtonWrapper {
+  height: 25px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.align{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.instructionInfo{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 10px;
+  word-break:keep-all;
+
+}
+
+.recipeTitle{
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
+  color: rgb(66, 0, 0);
+  margin-top: 10px;
+}
+
+.recipeName{
+  font-size: 30px;
+  margin-bottom: 0;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Search Recipes */
+
+.searchBackground {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  height: 100vh;
+}
+
+.searchBorder {
+  border: solid;
+  border-width: 5px;
+  border-color: rgb(93, 73, 30);
+  height: 500px;
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  overflow-y: auto;
+  background-color: rgb(244, 224, 198)
+}
+
+.searchFeature{
+  display: inline;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search{
+  width: 200px;
+  height: 30px;
+  margin: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: lightgray;
+  background-color: rgb(230, 209, 165);
+  /* border: none;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06); */
+  border-radius: 15px;
+  color: black;
+  font-weight: 550;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.search:hover{
+  box-shadow:  0 1px 1px 0px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+::placeholder {
+  color: black;
+  opacity: 0.5;
+  font-weight: 550;
+
+  /* Firefox */
+}
+
+.enterButton{
+  width: 70px;
+  height: 30px;
+  border: none;
+  background-color: rgba(102, 0, 0, 0.651);
+  border-radius: 10px;
+  font-weight: bold;
+  display: inline-block;
+  
+}
+
+.enterButton:hover{
+  background-color: rgba(133, 37, 37, 0.651);
+}
+
+.selectRecipe{
+  width: 200px;
+  height: 25px;
+  border: none;
+  background-color: rgba(128, 14, 14, 0.651);
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block
+
+}
+
+.searchRecipeName{
+  text-decoration: none;
   color: white;
+  height: 100%;
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+.selectRecipe:hover {
+  background-color: rgba(120, 7, 7, 0.918);
+  width: 210px;
+  height: 30px;
+  transition-timing-function: ease-in;
+  transition: 0.05s;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchRecipeInfo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.recipeNameWrapper{
+  margin-top: 10px;
+  height: 30px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detailsRecipeTitle {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(66, 0, 0);
+  margin-top: 0;
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+
+.selectRecipeName {
+  font-size: 35px;
+  margin-bottom: 0;
+  text-align: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+/* Recipe Details */
+
+.detailsBorder{
+  border: solid;
+  border-color: rgb(93, 73, 30);
+  border-width: 5px;
+  height: 400px;
+  width: 1000px;
+  max-height: 450px;
+  display: flex;
+  flex-direction: column;
+  /* overflow: auto; */
+  align-items: center;
+  background-color: rgb(244, 224, 198);
+  /* justify-content: center; */
+  margin-top: 10px;
+}
+
+.detailsInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.detailsBox{
+  width: 450px;
+  max-width: 450px;
+  height: 250px;
+  /* text-align: center; */
+  background-color: white;
+  border: solid;
+  border-width: 5px;
+  border-radius: 5px;
+  border-color: rgb(57, 38, 0);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+.detailsText{
+  margin-left: 15px;
+  margin-right: 15px;
+
+}
+
+.saveButton{
+    width: 400px;
+    height: 25px;
+    border: none;
+    background-color: rgba(152, 1, 1, 0.651);
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    margin-bottom: 10px;
+}
+/* .saveButtonText {
+  
+} */
+.saveButton:hover {
+  background-color: rgba(146, 41, 41, 0.918);
+  width: 410px;
+  height: 27px;
+  transition-timing-function: ease-in;
+  transition: 0.05s;
+
+}
+
+.saveButtonWrapper {
+  height: 40px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
