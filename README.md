@@ -13,11 +13,14 @@ ZeroFoodWaste is an app I created to help reduce food wastage, by providing user
 ## Demo and Screenshots
 
 ### Screenshots 
-![image](https://user-images.githubusercontent.com/73492549/205198158-5b7c4d9e-6749-428e-b58c-2f0e4dcc13ed.png)
+![image](https://user-images.githubusercontent.com/73492549/205432052-c4f98fd9-35b4-4758-b8cb-303e7684822b.png)
 
-![image](https://user-images.githubusercontent.com/73492549/205421057-5262dcfc-187b-4cc5-bfd5-57deea942c48.png)
+![image](https://user-images.githubusercontent.com/73492549/205432089-3c7c358e-93f7-41cb-afdc-ed5918f72079.png)
 
-![image](https://user-images.githubusercontent.com/73492549/205420608-4481c4a8-7ad7-4797-9821-0b9e0b203760.png)
+![image](https://user-images.githubusercontent.com/73492549/205432169-39f4977c-469e-4fb0-8d70-ff85d797a532.png)
+
+![image](https://user-images.githubusercontent.com/73492549/205432183-b50cddd9-0db2-40e1-8b19-31ce8416ad67.png)
+
 
 
 
