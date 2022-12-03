@@ -1,77 +1,87 @@
-// import logo from "./logo.svg";
-// import "./App.css";
+import "../App.css";
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
-import { recipeMealTimeContext } from "../Context";
 import axios from "axios";
-// import { load } from "npm";
-// import { load } from "npm";
+import { recipeMealTimeContext } from "../Context";
 
 function Breakfast() {
   const [meals, setMeals] = useState([]);
-  const [ingredients, setIngredients] = useState([]);
-  const { mealTime, setMealTime } = useContext(recipeMealTimeContext);
-
+  const [ingredientToggle, setIngredientToggle] = useState(true);
+  const [instructionToggle, setInstructionToggle] = useState(false);
   const loadMeals = async () => {
-    // fetch("https://www.boredapi.com/api/activity")
-
     axios.get("http://localhost:8000/meals/").then((response) => {
-      console.log(response.data);
       setMeals(response.data);
-      // console.log(response.data);
     });
   };
 
   const removeMeal = async (id) => {
-    console.log(id);
     try {
       await axios
         .delete(`http://localhost:8000/meals/${id}`)
         .then((response) => {
-          console.log(response);
           loadMeals();
-          console.log(meals);
         });
     } catch {
-      console.log("error");
       loadMeals();
     }
   };
 
   useEffect(() => {
     loadMeals();
-    // console.log(recipeId);
   }, []);
   return (
-    <div>
-      <h1>Dinner Meals</h1>
-      <div>
+    <div className="planMealBackground">
+      <h1 className="title">Dinner Meals</h1>
+      <div className="recipeBorder">
         {meals.map((meal) => (
           <div>
             {meal.mealTime == "Dinner" ? (
-              <div key={meal.id}>
-                <h2>{meal.name}</h2>
-                <h3>Ingredients</h3>
-                {meal.ingredients.map((ingredient) => (
-                  <h5 key={ingredient.name}>
-                    {ingredient.name}
-                    &nbsp;
-                    {ingredient.amount.metric.value}
-                    &nbsp;
-                    {ingredient.amount.metric.unit}
-                  </h5>
-                ))}
-                <h3>Instructions</h3>
-                {meal.instructions.map((step) => (
-                  <h5 key={step.number}> {step.step}</h5>
-                ))}
-                <button
-                  onClick={() => {
-                    removeMeal(meal.id);
-                  }}
-                >
-                  delete
-                </button>
+              <div className="plannedRecipeBorderGap">
+                <div className="align">
+                  <div className="plannedRecipeBorder">
+                    <div className="plannedRecipeInfo" key={meal.id}>
+                      <div className="plannedRecipeTitle">
+                        <h2 className="recipeName">{meal.name}</h2>
+                        <div className="plannedRecipeButtons">
+                          <h3 className="recipeTitle">INGREDIENTS</h3>
+                        </div>
+                      </div>
+                      <div>
+                        {meal.ingredients.map((ingredient) => (
+                          <li className="instructionInfo" key={ingredient.name}>
+                            {ingredient.name}
+                            &nbsp;
+                            {ingredient.amount.metric.value}
+                            &nbsp;
+                            {ingredient.amount.metric.unit}
+                          </li>
+                        ))}
+                      </div>
+                      <h3 className="recipeTitle">INSTRUCTIONS</h3>
+                      <div>
+                        {meal.instructions.map((step) => (
+                          <li
+                            className="instructionInfo"
+                            type="1"
+                            key={step.number}
+                          >
+                            {step.step}{" "}
+                          </li>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="deleteButtonWrapper">
+                    <button
+                      onClick={() => {
+                        removeMeal(meal.id);
+                      }}
+                      className="deleteButton"
+                    >
+                      DELETE
+                    </button>
+                  </div>
+                </div>
               </div>
             ) : (
               <div></div>
@@ -79,12 +89,23 @@ function Breakfast() {
           </div>
         ))}
       </div>
-      <button>
-        <Link to="/SearchRecipes"> Add Recipe</Link>
-      </button>
-      <button>
-        <Link to="/"> Home</Link>
-      </button>
+      <div className="buttons">
+        <div className="buttonWrapper">
+          <button className="button">
+            <Link className="buttonText" to="/">
+              {" "}
+              Home
+            </Link>
+          </button>
+        </div>
+        <div className="buttonWrapper">
+          <button className="button">
+            <Link className="buttonText" to="/SearchRecipes">
+              Add Recipe
+            </Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

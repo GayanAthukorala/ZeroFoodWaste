@@ -1,6 +1,5 @@
-// import logo from "./logo.svg";
 // import "./App.css";
-import React, { useEffect, useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import {
   recipeCalorieContext,
@@ -13,18 +12,19 @@ function App() {
   const [recipe, setRecipe] = useState([]);
   const [mealInput, setMealInput] = useState("");
   const [meal, setMeal] = useState("");
-  // const [recipeId, setRecipeId] = useState("");
   const { recipeId, setRecipeId } = useContext(recipeIdContext);
   const { recipeName, setRecipeName } = useContext(recipeNameContext);
   const { recipeCalories, setRecipeCalories } =
     useContext(recipeCalorieContext);
   const [calorieInput, setCalorieInput] = useState("");
-  let formRef = useRef();
-  // let api_key = process.env.api_key;
-  let api_key = "?apiKey=9172aaf2bf104daa84d9e09f6f54a3ed";
-  const loadRecipe = async () => {
-    // fetch("https://www.boredapi.com/api/activity")
 
+  // let api_key = "?apiKey=9172aaf2bf104daa84d9e09f6f54a3ed";
+  let api_key = "?apiKey=782bba4ef5fd462d81b2102ebb96fe55";
+  // let api_key = "?apiKey=76865ec43abf4ed8b775b956dd6dfaf5";
+  // let api_key = "?apiKey=b2851b4e879e4d24800357e02da17645";
+  // let api_key = "?apiKey=9172aaf2bf104daa84d9e09f6f54a3ed";
+
+  const loadRecipe = async () => {
     axios
       .get(
         "https://api.spoonacular.com/recipes/complexSearch" +
@@ -34,15 +34,9 @@ function App() {
       )
       .then((response) => {
         setRecipe(response.data.results);
-        // console.log(response);
-        // console.log(response.data);
         console.log(recipe);
       });
   };
-
-  // useEffect(() => {
-  //   loadRecipe();
-  // }, []);
 
   const handleChange = (e) => {
     setMealInput(e.target.value);
@@ -57,42 +51,63 @@ function App() {
     e.preventDefault();
     setMeal(mealInput);
     setRecipeCalories(calorieInput);
-    console.log(meal);
-    formRef.current?.reset();
     loadRecipe();
     setMealInput("");
+    setCalorieInput("");
   };
 
   const select = (id, name) => {
-    console.log(name);
     setRecipeId(id);
-    console.log(recipeId);
     setRecipeName(name);
-    console.log(recipeName);
   };
 
   return (
-    <div>
-      <h3>
+    <div className="searchBackground">
+      <h1 className="title">Search Recipes</h1>
+      <div className="searchFeature">
+        <input
+          className="search"
+          placeholder="Calories"
+          value={calorieInput}
+          onChange={handleCalorieChange}
+        />
+        <input
+          placeholder="Meal Name"
+          className="search"
+          value={mealInput}
+          onChange={handleChange}
+        />
+        <button className="enterButton" onClick={submit}>
+          Enter
+        </button>
+      </div>
+      <div className="searchBorder">
         {recipe.map((recipe) => (
-          <div>
-            <button
-              key={recipe.id}
-              onClick={() => select(recipe.id, recipe.title)}
-            >
-              <Link to="/RecipeInstructions"> {recipe.title}</Link>
-            </button>
-            <h4>{recipeId}</h4>
+          <div className="searchRecipeInfo">
+            <img style={{ height: 250, width: 250 }} src={recipe.image}></img>
+            <div className="recipeNameWrapper">
+              <button
+                className="selectRecipe"
+                key={recipe.id}
+                onClick={() => select(recipe.id, recipe.title)}
+              >
+                <Link className="searchRecipeName" to="/RecipeInstructions">
+                  {" "}
+                  {recipe.title}
+                </Link>
+              </button>
+            </div>
           </div>
         ))}
-      </h3>
-      {/* <h3>{meal}</h3> */}
-      <input value={calorieInput} onChange={handleCalorieChange} />
-      <input value={mealInput} onChange={handleChange} />
-      <button onClick={submit}>Enter</button>
-      <button>
-        <Link to="/"> Home</Link>
-      </button>
+      </div>
+      <div className="buttonWrapper">
+        <button className="button">
+          <Link className="buttonText" to="/">
+            {" "}
+            Home
+          </Link>
+        </button>
+      </div>
     </div>
   );
 }
