@@ -17,12 +17,8 @@ function App() {
   const { recipeCalories, setRecipeCalories } =
     useContext(recipeCalorieContext);
   const [calorieInput, setCalorieInput] = useState("");
-
-  // let api_key = "?apiKey=9172aaf2bf104daa84d9e09f6f54a3ed";
+  
   let api_key = "?apiKey=782bba4ef5fd462d81b2102ebb96fe55";
-  // let api_key = "?apiKey=76865ec43abf4ed8b775b956dd6dfaf5";
-  // let api_key = "?apiKey=b2851b4e879e4d24800357e02da17645";
-  // let api_key = "?apiKey=9172aaf2bf104daa84d9e09f6f54a3ed";
 
   const loadRecipe = async () => {
     axios
