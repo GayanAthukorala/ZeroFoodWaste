@@ -6,8 +6,11 @@ ZeroFoodWaste is an app I created to help reduce food wastage, by providing user
 ## Built With 
 - Python 
 - Django
+- JavaScript
 - React 
 - REST APIs
+- HTML
+- CSS
 - Spoonacular Recipe API
 
 ## Demo and Screenshots
