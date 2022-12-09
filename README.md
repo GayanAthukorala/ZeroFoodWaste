@@ -1,7 +1,7 @@
-# ZeroFoodWaste
+# Zero Food Waste
 
 ## Description
-ZeroFoodWaste is an app I created to help reduce food wastage, by providing users with recipes for meals they want to make that have adjusted ingredient amounts to meet their caloric requirements 
+Zero Food Waste is an app I created to help reduce food wastage, by providing users with recipes for meals they want to make that have adjusted ingredient amounts to meet their caloric requirements 
 
 ## Built With 
 - Python 
